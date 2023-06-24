@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineObject : Object
+public class MachineObject : GridObject
 {
     private int _sequenceNumber;
     private bool _polarity;

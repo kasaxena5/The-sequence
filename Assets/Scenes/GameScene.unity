@@ -167,8 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72fa9e18933328439d2fe252daa38a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPosition: {x: 0, y: 0}
-  _endPosition: {x: 0, y: 0}
+  _tilePrefab: {fileID: 6038096598610966335, guid: 7d877c93f85ec7c4b921462c3055e6dd, type: 3}
+  _obstaclePrefab: {fileID: 65023148733793162, guid: 0a0e3d6898b10134faa738b27d6f6968, type: 3}
+  _targetObjectPrefab: {fileID: 9151222329984102556, guid: e1fe6cfe87a3f2d45bf382a337892b45, type: 3}
+  _startPosition: {x: 5, y: 5}
+  _endPosition: {x: 7, y: 7}
+  _width: 10
+  _depth: 10
+  _obstaclePositions:
+  - {x: 1, y: 1}
+  - {x: 3, y: 3}
+  - {x: 4, y: 5}
+  _drawGizmos: 1
   gameMode: 0
 --- !u!1 &705507993
 GameObject:
