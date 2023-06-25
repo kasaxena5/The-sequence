@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridObject : MonoBehaviour
 {
     protected Tile _tile;
-    private bool _isMovable;
+    protected bool _isMovable;
     protected GameGrid _gameGrid;
 
     public void Initialize(GameGrid gameGrid, bool isMovable=true)
@@ -22,6 +22,7 @@ public class GridObject : MonoBehaviour
 
     public void MoveToTile(Tile tile)
     {
+        _tile.PickUpObject();
         tile.DropObject(this);
     }
 }

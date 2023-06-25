@@ -11,6 +11,7 @@ public class GameGrid : MonoBehaviour
 
     // TODO: Remove this after testing
     [SerializeField] private PushPullMachineObject _pushPullMachineObjectPrefab;
+    [SerializeField] private RevolveMachineObject _revolveMachineObjectPrefab;
 
     [Header("Configs")]
     [SerializeField] private Vector2Int _startPosition;
@@ -48,7 +49,7 @@ public class GameGrid : MonoBehaviour
         int x = _machinePosition.x;
         int z = _machinePosition.y;
 
-        GridObject machineObject = Instantiate(_pushPullMachineObjectPrefab);
+        GridObject machineObject = Instantiate(_revolveMachineObjectPrefab);
         machineObject.Initialize(this);
         _gameGrid[x, z].DropObject(machineObject);
     }
