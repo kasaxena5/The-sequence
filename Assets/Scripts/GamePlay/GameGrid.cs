@@ -9,6 +9,9 @@ public class GameGrid : MonoBehaviour
     [SerializeField] private GridObject _obstaclePrefab;
     [SerializeField] private GridObject _targetObjectPrefab;
 
+    // TODO: Remove this after testing
+    [SerializeField] private PushPullMachineObject _pushPullMachineObjectPrefab;
+
     [Header("Configs")]
     [SerializeField] private Vector2Int _startPosition;
     [SerializeField] private Vector2Int _endPosition;
@@ -16,6 +19,9 @@ public class GameGrid : MonoBehaviour
     [SerializeField] private int _depth;
     [SerializeField] private Vector2Int[] _obstaclePositions;
     [SerializeField] private bool _drawGizmos;
+
+    // TODO: Remove this after testing
+    [SerializeField] private Vector2Int _machinePosition;
 
     public enum Mode
     {
@@ -37,6 +43,14 @@ public class GameGrid : MonoBehaviour
         GenerateTiles();
         GenerateObstacles();
         GenerateTargetObject();
+
+        //TODO Remove After testing
+        int x = _machinePosition.x;
+        int z = _machinePosition.y;
+
+        GridObject machineObject = Instantiate(_pushPullMachineObjectPrefab);
+        machineObject.Initialize(this);
+        _gameGrid[x, z].DropObject(machineObject);
     }
 
     private void GenerateTiles()
@@ -71,6 +85,21 @@ public class GameGrid : MonoBehaviour
 
         GridObject targetObject = Instantiate(_targetObjectPrefab);
         _gameGrid[x, z].DropObject(targetObject);
+    }
+
+    public Tile GetNeighbourTile(Tile tile, Vector2Int direction)
+    {
+        if (!tile)
+            return null;
+        int dx = direction.x;
+        int dz = direction.y;
+
+        int x = tile.GetPosition().x;
+        int z = tile.GetPosition().y;
+
+        if(x + dx >= 0 && z + dz >= 0 && x + dx < _width && z + dz < _depth)
+            return _gameGrid[x + dx, z + dz];
+        return null;
     }
 
     #region Gizmos
