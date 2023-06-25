@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class RevolveMachineObject : MachineObject
 {
-    public override void PerformAction()
+    private void MoveObjectFromPickupToDrop(Tile pickupTile, Tile dropTile)
     {
-        Vector2Int nextDirection = Helper.GetNextRevolveDirection(_direction, true);
+        if (pickupTile && pickupTile.HasObject() && dropTile && !dropTile.HasObject())
+        {
+            GridObject gridObject = pickupTile.GetObject();
+            gridObject.MoveToTile(dropTile);
+        }
+    }
+
+    private void Revolve(bool clockwise)
+    {
+        Vector2Int nextDirection = Helper.GetNextRevolveDirection(_direction, clockwise);
         Tile pickupTile = _gameGrid.GetNeighbourTile(_tile, _direction);
         Tile dropTile = _gameGrid.GetNeighbourTile(_tile, nextDirection);
 
 
-        GridObject gridObject = pickupTile?.GetObject();
-
-        if (gridObject && pickupTile && dropTile)
-        {
-            gridObject.MoveToTile(dropTile);
-        }
+        MoveObjectFromPickupToDrop(pickupTile, dropTile);
         SetDirection(nextDirection);
+    }
+
+    public override void PerformAction()
+    {
+        Revolve(true);
     }
 
     public override void RevertAction()
     {
-        Vector2Int nextDirection = Helper.GetNextRevolveDirection(_direction, false);
-        Tile pickupTile = _gameGrid.GetNeighbourTile(_tile, _direction);
-        Tile dropTile = _gameGrid.GetNeighbourTile(_tile, nextDirection);
-
-
-        GridObject gridObject = pickupTile?.GetObject();
-
-        if (gridObject && pickupTile && dropTile)
-        {
-            gridObject.MoveToTile(dropTile);
-        }
-        SetDirection(nextDirection);
+        Revolve(false);
     }
 
     // TODO: Remove after testing

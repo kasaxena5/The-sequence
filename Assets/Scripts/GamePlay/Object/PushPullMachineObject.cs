@@ -4,32 +4,41 @@ using UnityEngine;
 
 public class PushPullMachineObject : MachineObject
 {
-    public override void PerformAction()
+    private void MoveObjectFromPickupToDrop(Tile pickupTile, Tile dropTile)
     {
-        Tile pickupTile = _gameGrid.GetNeighbourTile(_tile, _direction);
-        Tile dropTile = _gameGrid.GetNeighbourTile(pickupTile, _direction);
-
-
-        GridObject gridObject = pickupTile?.GetObject();
-
-        if(gridObject && pickupTile && dropTile)
+        if (pickupTile && pickupTile.HasObject() && dropTile && !dropTile.HasObject())
         {
+            GridObject gridObject = pickupTile.GetObject();
             gridObject.MoveToTile(dropTile);
         }
+    }
 
+    private void PushOrPull(bool push)
+    {
+        Tile pickupTile;
+        Tile dropTile;
+        if (push)
+        {
+            pickupTile = _gameGrid.GetNeighbourTile(_tile, _direction);
+            dropTile = _gameGrid.GetNeighbourTile(pickupTile, _direction);
+        }
+        else
+        {
+
+            dropTile = _gameGrid.GetNeighbourTile(_tile, _direction);
+            pickupTile = _gameGrid.GetNeighbourTile(dropTile, _direction);
+        }
+
+        MoveObjectFromPickupToDrop(pickupTile, dropTile);
+    }
+    public override void PerformAction()
+    {
+        PushOrPull(true);
     }
 
     public override void RevertAction()
     {
-
-        Tile dropTile = _gameGrid.GetNeighbourTile(_tile, _direction);
-        Tile pickupTile = _gameGrid.GetNeighbourTile(dropTile, _direction);
-        
-        GridObject gridObject = pickupTile?.GetObject();
-        if (gridObject && pickupTile && dropTile)
-        {
-            gridObject.MoveToTile(dropTile);
-        }
+        PushOrPull(false);
     }
 
     // TODO: Remove after testing

@@ -45,7 +45,7 @@ public class GameGrid : MonoBehaviour
         GenerateObstacles();
         GenerateTargetObject();
 
-        //TODO Remove After testing
+        //TODO: Remove After testing
         int x = _machinePosition.x;
         int z = _machinePosition.y;
 
@@ -75,7 +75,8 @@ public class GameGrid : MonoBehaviour
             int z = obstaclePosition.y;
 
             GridObject obstacle = Instantiate(_obstaclePrefab);
-            _gameGrid[x, z].DropObject(obstacle);
+            if(!TryDropObject(x, z, obstacle))
+                Debug.LogError($"Obstacle Position [{x},{z}] already has an object or is out of bounds!");
         }
     }
 
@@ -85,22 +86,39 @@ public class GameGrid : MonoBehaviour
         int z = _startPosition.y;
 
         GridObject targetObject = Instantiate(_targetObjectPrefab);
-        _gameGrid[x, z].DropObject(targetObject);
+        if (!TryDropObject(x, z, targetObject))
+            Debug.LogError($"Start Position [{x},{z}] already has an object or is out of bounds!");
+    }
+
+    private bool AreInBounds(int x, int z)
+    {
+        return x >= 0 && z >= 0 && x < _width && z < _depth;
     }
 
     public Tile GetNeighbourTile(Tile tile, Vector2Int direction)
     {
         if (!tile)
             return null;
+        
         int dx = direction.x;
         int dz = direction.y;
 
         int x = tile.GetPosition().x;
         int z = tile.GetPosition().y;
 
-        if(x + dx >= 0 && z + dz >= 0 && x + dx < _width && z + dz < _depth)
+        if(AreInBounds(x + dx, z + dz))
             return _gameGrid[x + dx, z + dz];
         return null;
+    }
+
+    public bool TryDropObject(int x, int z, GridObject gridObject)
+    {
+        if (!AreInBounds(x, z))
+            return false;
+        if (_gameGrid[x, z].HasObject())
+            return false;
+        _gameGrid[x, z].DropObject(gridObject);
+        return true;
     }
 
     #region Gizmos
