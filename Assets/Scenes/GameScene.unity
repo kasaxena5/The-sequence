@@ -341,7 +341,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 315382395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367067939}
+        m_TargetAssemblyTypeName: MachineObjectPool, Assembly-CSharp
+        m_MethodName: Rewind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &315382395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +458,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471364894
 GameObject:
@@ -531,7 +543,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471364897}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367067939}
+        m_TargetAssemblyTypeName: MachineObjectPool, Assembly-CSharp
+        m_MethodName: Record
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471364897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,8 +641,8 @@ MonoBehaviour:
   _tilePrefab: {fileID: 6038096598610966335, guid: 7d877c93f85ec7c4b921462c3055e6dd, type: 3}
   _obstaclePrefab: {fileID: 65023148733793162, guid: 0a0e3d6898b10134faa738b27d6f6968, type: 3}
   _targetObjectPrefab: {fileID: 9151222329984102556, guid: e1fe6cfe87a3f2d45bf382a337892b45, type: 3}
-  _startPosition: {x: 5, y: 5}
-  _endPosition: {x: 7, y: 7}
+  _startPosition: {x: 5, y: 3}
+  _endPosition: {x: 6, y: 2}
   _width: 10
   _depth: 10
   _obstaclePositions:
@@ -940,6 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831167046}
+  - component: {fileID: 831167047}
   m_Layer: 0
   m_Name: ActionRecorder
   m_TagString: Untagged
@@ -962,6 +987,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831167047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831167045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fc665e2ab130941863458b9d0a4d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,14 +1075,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 5, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &1367067935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,9 +1178,10 @@ MonoBehaviour:
   _gameGrid: {fileID: 633232038}
   _machineObjects:
   - MachineObjectPrefab: {fileID: 9090953663593684829, guid: 52d25016426a19f418d03ff4d0ec50e5, type: 3}
-    SpawnPosition: {x: 0, y: 0}
+    SpawnPosition: {x: 5, y: 0}
   - MachineObjectPrefab: {fileID: 1463413673896474457, guid: 01666a2b2165ab04ea1bc6660335cdb3, type: 3}
-    SpawnPosition: {x: 0, y: 1}
+    SpawnPosition: {x: 5, y: 1}
+  _actionRecorder: {fileID: 831167047}
   _drawGizmos: 1
 --- !u!1 &1416909771
 GameObject:
@@ -1279,37 +1317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416909771}
   m_CullTransparentMesh: 1
---- !u!1 &1474728910
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1474728911}
-  m_Layer: 0
-  m_Name: MachineObjectPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1474728911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474728910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1706416313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1413,7 @@ RectTransform:
   - {fileID: 1367067936}
   - {fileID: 657081640}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -14,9 +14,32 @@ public class MachineObjectPool : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameGrid _gameGrid;
     [SerializeField] private Machine[] _machineObjects;
+    [SerializeField] private ActionRecorder _actionRecorder;
     
     [Header("Configs")]
     [SerializeField] private bool _drawGizmos;
+
+    private int _currentSequenceNumber = 0;
+    private List<MachineObject> _machines = new();
+
+    public void Record()
+    {
+        if (_currentSequenceNumber < _machines.Count)
+        {
+            Action action = new Action(_machines[_currentSequenceNumber]);
+            _actionRecorder.Record(action);
+            _currentSequenceNumber++;
+        }
+    }
+
+    public void Rewind()
+    {
+        if (_currentSequenceNumber > 0)
+        {
+            _actionRecorder.Rewind();
+            _currentSequenceNumber--;
+        }
+    }
 
     public void InitializeMachines()
     {
@@ -25,13 +48,15 @@ public class MachineObjectPool : MonoBehaviour
             int x = machine.SpawnPosition.x;
             int z = machine.SpawnPosition.y;
 
-            GridObject machineObject = Instantiate(machine.MachineObjectPrefab);
+            MachineObject machineObject = Instantiate(machine.MachineObjectPrefab);
             machineObject.Initialize(_gameGrid);
+            _machines.Add(machineObject);
             if (!_gameGrid.TryDropObject(x, z, machineObject))
                 Debug.LogError($"Machine Position [{x},{z}] already has an object or is out of bounds!");
             
         }
     }
+    
     #region Gizmos
     private void DrawMachineGizmos(int x, int z)
     {

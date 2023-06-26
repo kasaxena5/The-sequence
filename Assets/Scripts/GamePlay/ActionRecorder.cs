@@ -5,7 +5,7 @@ using System;
 
 public class ActionRecorder : MonoBehaviour
 {
-    private Stack<Action> _actions;
+    private Stack<Action> _actions = new();
 
     public void Record(Action action)
     {
