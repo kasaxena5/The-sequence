@@ -33,20 +33,11 @@ public class PushPullMachineObject : MachineObject
     }
     public override void PerformAction()
     {
-        PushOrPull(true);
+        PushOrPull(_polarity);
     }
 
     public override void RevertAction()
     {
-        PushOrPull(false);
-    }
-
-    // TODO: Remove after testing
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            PerformAction();
-        if (Input.GetKeyDown(KeyCode.R))
-            RevertAction();
+        PushOrPull(!_polarity);
     }
 }

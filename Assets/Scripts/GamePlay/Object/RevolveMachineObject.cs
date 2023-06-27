@@ -26,20 +26,11 @@ public class RevolveMachineObject : MachineObject
 
     public override void PerformAction()
     {
-        Revolve(true);
+        Revolve(_polarity);
     }
 
     public override void RevertAction()
     {
-        Revolve(false);
-    }
-
-    // TODO: Remove after testing
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            PerformAction();
-        if (Input.GetKeyDown(KeyCode.R))
-            RevertAction();
+        Revolve(!_polarity);
     }
 }
