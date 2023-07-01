@@ -15,10 +15,15 @@ public class MachineObjectHUD : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
+    private void Update()
+    {
+        if(_machineObject)
+            _rectTransform.position = _machineObject.transform.position + new Vector3(0, 1.5f, 0);
+    }
+
     public void Initialize(MachineObject machineObject)
     {
         _machineObject = machineObject;
-        _rectTransform.position = machineObject.transform.position + new Vector3(0, 1.5f, 0);
     }
     
     public void ReversePolarity()

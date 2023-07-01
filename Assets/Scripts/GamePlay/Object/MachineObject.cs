@@ -15,11 +15,13 @@ public class MachineObject : GridObject
     protected bool _polarity = true;
     protected Vector2Int _direction = Vector2Int.up;
 
+    /*
     private void OnMouseDown()
     {
         _isHUDActive = !_isHUDActive;
         _HUD.gameObject.SetActive(_isHUDActive);
     }
+    */
 
     public override void Initialize(GameGrid gameGrid, bool isMovable = true)
     {
