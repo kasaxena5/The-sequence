@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MachineObject : GridObject
 {
-    [SerializeField] private MachineObjectHUD _HUD;
+    [SerializeField] private MachineObjectHUD _HUDPrefab;
     [SerializeField] private GameObject _positivePolarity;
     [SerializeField] private GameObject _negativePolarity;
+
+    private MachineObjectHUD _HUD;
+    private bool _isHUDActive;
 
     protected int _sequenceNumber;
     protected bool _polarity = true;
@@ -14,9 +17,20 @@ public class MachineObject : GridObject
 
     private void OnMouseDown()
     {
-        _HUD.gameObject.SetActive(true);
+        _isHUDActive = !_isHUDActive;
+        _HUD.gameObject.SetActive(_isHUDActive);
     }
 
+    public override void Initialize(GameGrid gameGrid, bool isMovable = true)
+    {
+        base.Initialize(gameGrid, isMovable);
+
+        _HUD = Instantiate(_HUDPrefab);
+        _HUD.Initialize(this);
+        _isHUDActive = false;
+        _HUD.gameObject.SetActive(_isHUDActive);
+    }
+    
     public void SetDirection(Vector2Int direction)
     {
         _direction = direction;
@@ -38,13 +52,13 @@ public class MachineObject : GridObject
         SetDirection(nextDirection);
     }
 
-    protected void ReversePolarity()
+    public void ReversePolarity()
     {
         _polarity = !_polarity;
 
       
         _positivePolarity.SetActive(_polarity);
-        _negativePolarity.SetActive(_polarity);
+        _negativePolarity.SetActive(!_polarity);
         
     }
 

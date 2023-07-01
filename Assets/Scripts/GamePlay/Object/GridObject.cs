@@ -10,7 +10,7 @@ public class GridObject : MonoBehaviour
 
     public bool IsMovable { get { return _isMovable; } set { _isMovable = value; } }
 
-    public void Initialize(GameGrid gameGrid, bool isMovable=true)
+    public virtual void Initialize(GameGrid gameGrid, bool isMovable=true)
     {
         _gameGrid = gameGrid;
         _isMovable = isMovable;

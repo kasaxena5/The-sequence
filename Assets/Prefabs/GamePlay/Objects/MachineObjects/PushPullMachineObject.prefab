@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0759d1658744c8e42b396db3d7b552f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _HUDPrefab: {fileID: 176763507801081534, guid: 051a3df498382a74db8d9586522cbfa1, type: 3}
   _positivePolarity: {fileID: 6697805889560013610}
   _negativePolarity: {fileID: 3469975673045582539}
 --- !u!1 &3469975673045582539

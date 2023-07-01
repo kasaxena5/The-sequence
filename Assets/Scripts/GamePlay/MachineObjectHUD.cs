@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class MachineObjectHUD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Canvas _canvas;
+    private RectTransform _rectTransform;
+    private MachineObject _machineObject;
+    
+    private void Awake()
     {
-        
+        _canvas = GetComponent<Canvas>();
+        _canvas.worldCamera = Camera.main;
+        _rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initialize(MachineObject machineObject)
     {
-        
+        _machineObject = machineObject;
+        _rectTransform.position = machineObject.transform.position + new Vector3(0, 1.5f, 0);
+    }
+    
+    public void ReversePolarity()
+    {
+        _machineObject.ReversePolarity();
+    }
+
+    public void Rotate(bool clockwise)
+    {
+        _machineObject.Rotate(clockwise);
     }
 }
