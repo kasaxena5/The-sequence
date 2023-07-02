@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameGrid: {fileID: 633232038}
   _machineObjects:
-  - MachineObjectPrefab: {fileID: 9090953663593684829, guid: 52d25016426a19f418d03ff4d0ec50e5, type: 3}
+  - MachineObjectPrefab: {fileID: 2980957897651611195, guid: 52d25016426a19f418d03ff4d0ec50e5, type: 3}
     SpawnPosition: {x: 5, y: 0}
   - MachineObjectPrefab: {fileID: 1463413673896474457, guid: 01666a2b2165ab04ea1bc6660335cdb3, type: 3}
     SpawnPosition: {x: 5, y: 1}
