@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragDrop : MonoBehaviour
+public class MachineDropper : MonoBehaviour
 {
     [SerializeField] private float _distance = 10f;
     [SerializeField] private GameGrid _gameGrid;
@@ -10,6 +10,10 @@ public class DragDrop : MonoBehaviour
 
     private Tile _tile;
 
+    private void Awake()
+    {
+        
+    }
 
     private void MoveMachineToTile(Tile tile)
     {
@@ -26,7 +30,6 @@ public class DragDrop : MonoBehaviour
 
     private void MoveMachine()
     {
-        _machineObject.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -57,19 +60,32 @@ public class DragDrop : MonoBehaviour
     {
         if(_tile)
         {
+            _machineObject.gameObject.layer = LayerMask.NameToLayer("Default");
             _machineObject.Initialize(_gameGrid);
             _tile.DropObject(_machineObject);
             _machineObject = null;
         }
+        else
+        {
+        }
+    }
+
+    public bool TryPickMachine(MachineObject machineObject)
+    {
+        if (_machineObject)
+            return false;
+        _machineObject = machineObject;
+        _machineObject.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        return true;
     }
 
     private void Update()
     {
         if (_machineObject)
         {
+            MoveMachine();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 DropMachine();
-            MoveMachine();
         }
     }
 }
