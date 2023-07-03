@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 99361e5e7af83004bb8be0a28ccb81e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _machineObjectPrefab: {instanceID: 0}
+  - _machineObjectCreatedEvent: {fileID: 11400000, guid: 2c0de41423bec314eb26de3c42181425, type: 2}
+  - _machineObjectPickedEvent: {fileID: 11400000, guid: 1be5855d1de3b214ab2a553ca513eb68, type: 2}
+  - _machineObjectDeletedEvent: {fileID: 11400000, guid: 0e30390d446ab9e4da7608a2f3c27f0d, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ba411d824f75bf74f823929ea56b37bf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _gameGrid: {instanceID: 0}
+  - _machineObject: {instanceID: 0}
+  - _machineObjectPickedEvent: {fileID: 11400000, guid: 1be5855d1de3b214ab2a553ca513eb68, type: 2}
+  - _machineObjectDroppedEvent: {fileID: 11400000, guid: 34387ab8924f2294a816a12a2ba2f581, type: 2}
+  - _machineObjectDeletedEvent: {fileID: 11400000, guid: 0e30390d446ab9e4da7608a2f3c27f0d, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
