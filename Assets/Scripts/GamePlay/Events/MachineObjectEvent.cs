@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class MachineObjectEvent : ScriptableObject
 {
-    public delegate MachineObject MachineObjectFunction();
+    public delegate void MachineObjectFunction(MachineObject machineObject);
 	private MachineObjectFunction OnEventRaised;
 
 	public void Subscribe(MachineObjectFunction f)
@@ -14,11 +14,14 @@ public class MachineObjectEvent : ScriptableObject
 		OnEventRaised += f;
     }
 
-	public MachineObject RaiseEvent()
+    public void UnSubscribe(MachineObjectFunction f)
+    {
+        OnEventRaised -= f;
+    }
+
+	public void RaiseEvent(MachineObject machineObject)
 	{
-		if(OnEventRaised != null)
-			return OnEventRaised();
-		return null;
-	}
+        OnEventRaised?.Invoke(machineObject);
+    }
 
 }
