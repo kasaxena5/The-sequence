@@ -1186,7 +1186,7 @@ MonoBehaviour:
   _machineObjects:
   - MachineObjectPrefab: {fileID: 2980957897651611195, guid: 52d25016426a19f418d03ff4d0ec50e5, type: 3}
     SpawnPosition: {x: 5, y: 0}
-  - MachineObjectPrefab: {fileID: 1463413673896474457, guid: 01666a2b2165ab04ea1bc6660335cdb3, type: 3}
+  - MachineObjectPrefab: {fileID: 3418700471808253472, guid: 01666a2b2165ab04ea1bc6660335cdb3, type: 3}
     SpawnPosition: {x: 5, y: 1}
   _actionRecorder: {fileID: 831167047}
   _drawGizmos: 1
@@ -1856,6 +1856,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657081640}
     m_Modifications:
+    - target: {fileID: 7158085334272491713, guid: 91c0b7ab31aeeb14ebadea4fa3852943, type: 3}
+      propertyPath: _machineObjectPrefab
+      value: 
+      objectReference: {fileID: 3418700471808253472, guid: 01666a2b2165ab04ea1bc6660335cdb3, type: 3}
     - target: {fileID: 7158085334272491716, guid: 91c0b7ab31aeeb14ebadea4fa3852943, type: 3}
       propertyPath: m_Name
       value: RevolveMachineObjectItem

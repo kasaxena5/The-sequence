@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3362375365661321914}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PositivePolarity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3362375365852254677}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NegativePolarity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,7 +2339,7 @@ GameObject:
   - component: {fileID: 3362375366554727160}
   - component: {fileID: 3362375366554727161}
   - component: {fileID: 3362375366554727158}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NegativePolaritySign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2536,7 +2536,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 319
+  m_VersionIndex: 322
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2639,7 +2639,7 @@ GameObject:
   - component: {fileID: 3362375366655450076}
   - component: {fileID: 3362375366655450077}
   - component: {fileID: 3362375366655450074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PositivePolaritySign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2939,8 +2939,8 @@ GameObject:
   - component: {fileID: 3362375366933687094}
   - component: {fileID: 3362375366933687095}
   - component: {fileID: 3362375366933687092}
-  m_Layer: 0
-  m_Name: PolarityMeter
+  m_Layer: 2
+  m_Name: PositiveMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3307,7 +3307,7 @@ GameObject:
   - component: {fileID: 3362375367321739229}
   - component: {fileID: 3362375367321739226}
   - component: {fileID: 3362375367321739227}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NegativeMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3565,7 +3565,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3332
+  m_VersionIndex: 3335
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

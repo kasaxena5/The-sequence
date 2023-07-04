@@ -38,17 +38,16 @@ public class MachineObject : GridObject
 
     public void Rotate(bool clockwise)
     {
-        Vector2Int nextDirection;
         if (clockwise)
         {
             transform.Rotate(new Vector3(0, 90, 0));
-            nextDirection = Helper.GetNextRevolveDirection(_direction, clockwise);
         }
         else
         {
             transform.Rotate(new Vector3(0, -90, 0));
-            nextDirection = Helper.GetNextRevolveDirection(_direction, !clockwise);
         }
+        Vector2Int nextDirection = Helper.GetNextRevolveDirection(_direction, clockwise);
+
         SetDirection(nextDirection);
     }
 

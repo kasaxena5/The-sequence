@@ -22,6 +22,11 @@ public class GridObject : MonoBehaviour
         transform.position = new Vector3(tile.transform.position.x, 0.5f, tile.transform.position.z);
     }
 
+    public Tile GetTile()
+    {
+        return _tile;
+    }
+
     public void MoveToTile(Tile tile)
     {
         _tile.PickUpObject();

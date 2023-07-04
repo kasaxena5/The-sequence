@@ -21,7 +21,7 @@ public class RevolveMachineObject : MachineObject
 
 
         MoveObjectFromPickupToDrop(pickupTile, dropTile);
-        SetDirection(nextDirection);
+        Rotate(clockwise);
     }
 
     public override void PerformAction()
